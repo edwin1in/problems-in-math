@@ -9,8 +9,6 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\F}{\mathbb{F}}
 
-
-
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -31,6 +29,8 @@
 \theoremstyle{problem}
 \newtheorem{problem}{Problem}
 \newtheorem{sol}{Solution}
+\theoremstyle{remark}
+\newtheorem{rmk}{Remark}
 
 \begin{document}
 \title{linear algebra pset}
@@ -42,8 +42,10 @@
 \newpage
 
 \section{Vector Spaces}
+\begin{rmk}
+We denote $\F$ as $\R$ or $\C$ unless otherwise specified.
+\end{rmk}
 \subsection{Basic Problems}
-
 \begin{problem}
 Prove that $-(-v) =v $ for every $v \in V$. 
 \end{problem}
@@ -55,6 +57,28 @@ Prove that $-(-v) =v $ for every $v \in V$.
 \end{problem}
 \begin{problem}
     The empty set is not a vector space. The empty set fails to satisfy only one of the requirements listed in the definition of a vector space. Which one? 
+\end{problem}
+
+\begin{problem}
+    Let $\infty$ and $-\infty$ denote two distinct objects, neither of which is in $\R$. Define an addition and scalar multiplication on $\R \cup\{\infty,-\infty\}$ as you could guess from the notation. Specifically, the sum and product of two real numbers is as usual, and for $t \in \R$ define \\ 
+\begin{equation*}
+t\infty = \begin{cases}
+             -\infty  & \text{if } t < 0 \\
+             0  & \text{if } t =  0 \\
+             \infty & \text{if } t > 0
+       \end{cases} \quad
+t(-\infty) = \begin{cases}
+             \infty  & \text{if } t < 0 \\
+             0  & \text{if } t = 0 \\
+             -\infty &\text{if } t >0
+       \end{cases}
+\end{equation*}
+and
+\begin{align*}
+    t + \infty = \infty + t &= \infty + \infty = \infty \\
+    t+ (-\infty) = (-\infty) + t &= (-\infty) + (-\infty) = -\infty \\
+    \infty + (-\infty) &= (-\infty) + \infty = 0
+\end{align*}
 \end{problem}
 
 \newpage
@@ -95,5 +119,16 @@ Prove that $-(-v) =v $ for every $v \in V$.
 \end{sol}
 \begin{sol}
     The additive identity property.
+\end{sol}
+\begin{sol}
+    No, $\R \cup \{\infty, -\infty\}$ is not a vector space over $\R$. Consider $t \in \R\setminus\{0\}$. Then 
+    \begin{align*}
+        (t + \infty) + (-\infty) = \infty + (-\infty) = 0
+    \end{align*}
+    but
+    \begin{align*}
+        t + (\infty + (-\infty)) = t + 0 = t \neq 0
+    \end{align*}
+    Thus, it does not satisfies associativity.
 \end{sol}
 \end{document}
